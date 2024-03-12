@@ -1,0 +1,27 @@
+name: Composer validate
+
+on:
+  workflow_call:
+    inputs:
+      php_version:
+        description: 'PHP Version'
+        default: '8.1'
+        required: true
+        type: string
+      extensions:
+        description: 'PHP extensions'
+        default: ''
+        required: false
+        type: string
+  pull_request:
+    types: [opened, synchronize]
+
+jobs:
+  composer-validate:
+    uses: AloisJasa/.github/.github/workflows/composer-validate.yaml@main
+    name: Composer validate
+    with:
+      php_version: '8.1'
+      extensions: "mongodb"
+    secrets:
+      gh-token: ${{ secrets.ACCESS_TOKEN }}
