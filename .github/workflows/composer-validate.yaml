@@ -1,7 +1,7 @@
 name: Composer validate
 
 on:
-  workflow_call:
+  workflow_dispatch:
     inputs:
       php_version:
         description: 'PHP Version'
