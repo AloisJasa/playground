@@ -28,6 +28,6 @@ jobs:
     with:
       php_version: '8.1'
       extensions: "mongodb"
-      force_check: ${{ inputs.force_check == 'true' }}
+      force_check: ${{ inputs.force_check == true }}
     secrets:
       gh-token: ${{ secrets.ACCESS_TOKEN }}
