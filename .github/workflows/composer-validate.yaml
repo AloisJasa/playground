@@ -13,6 +13,11 @@ on:
         default: ''
         required: false
         type: string
+      force_check:
+        description: 'Force'
+        default: false
+        required: false
+        type: boolean
   pull_request:
     types: [opened, synchronize]
 
@@ -23,5 +28,6 @@ jobs:
     with:
       php_version: '8.1'
       extensions: "mongodb"
+      force_check: ${{ inputs.force_check == 'true' }}
     secrets:
       gh-token: ${{ secrets.ACCESS_TOKEN }}
